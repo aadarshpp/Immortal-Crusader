@@ -9,7 +9,7 @@
 
 #define SCENE_SETUP_C
 
-#define RESOURCE_PATH "C:/Immortal Crusade/resources"
+#define RESOURCE_PATH "./assets/resources"
 
 int* getPixelCoordinates(int bx, int by, int rows, int cols) {
     static int pixelCoordinates[2];
@@ -235,7 +235,7 @@ void setUpCI2Scene() {
     CI2Scene.bounds = (int*) CI2Bounds;
     
     CI2Scene.functionPointersLength = 8;
-    static SceneFuncPointer CI2FunctionPointers[8] = {&noAction, &moveBack, &exitToJN1BottomLeft, &exitToCD1Top, NULL, &exitToCI1Left, &falseClue, &trueClue};
+    static SceneFuncPointer CI2FunctionPointers[8] = {&noMovementAndResetClues, &moveBack, &exitToJN1BottomLeft, &exitToCD1Top, NULL, &exitToCI1Left, &falseClue, &trueClue};
     CI2Scene.functionPointers = CI2FunctionPointers;
     
     static SceneName CI2ExitToScenes[4] = {JN1, CD1, -1, CI1};
@@ -349,9 +349,11 @@ void setUpCD1Scene() {
     
     static int CD1Bounds[10][20] = {
         {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-        {1,0,0,0,0,0,0,0,2,1,2,0,0,0,0,0,0,0,0,1},
-        {1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+
+        {1,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,1},
+        {1,0,1,0,0,1,0,0,0,2,0,0,0,0,0,0,0,0,0,1},
         {1,0,1,0,0,1,0,1,1,0,0,0,0,0,1,1,0,0,0,1},
+        
         {1,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,3,1,1},
         {1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,3,1,1},
         {1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,3,1},

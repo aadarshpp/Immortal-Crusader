@@ -4,10 +4,6 @@
 #include "imaginate.c"
 #include "character_setup.c"
 
-#ifndef INTEL_RESOURCE_PATH
-#define INTEL_RESOURCE_PATH "C:/immortal_crusader/Intle_Resources"
-#endif
-
 typedef enum{
     no=0,
     yes,

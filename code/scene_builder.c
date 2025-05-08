@@ -67,7 +67,6 @@ void buildScene(Scene* scene, Character* warriorPointer, int frameNo, int ressur
     } else {
         checkForGoblinInOtherIsland(boxCoordinates[0], boxCoordinates[1], scene);
     }
-
 }
 
 #endif

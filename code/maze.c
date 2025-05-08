@@ -8,7 +8,7 @@
 
 #define MBOUNDS_ROWS 16
 #define MBOUNDS_COLS 24
-#define MAZE_RESOURCE_PATH "C:\\Immortal Crusade\\Maze_Resources"
+#define MAZE_RESOURCE_PATH "./assets/Maze_Resources/"
 
 #define MAX_BOMBS 3
 #define MAX_PROPS 5
@@ -65,22 +65,22 @@ void initializeBombs(Bomb *bombs) {
     
     bombs[0].x = 17 * cellWidth+28;
     bombs[0].y = 5 * cellHeight;
-    bombs[0].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\bomb1.png");
-    fillImageArray(bombs[0].explosionFrames, "Tiny Swords (Update 010)/Effects/Explosion", 6);
+    bombs[0].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/bomb1.png");
+    fillImageArray(bombs[0].explosionFrames, "Tiny-Swords-Maze/Effects/Explosion", 6);
     bombs[0].exploded = false;
     bombs[0].explosionFrame = 0;
 
     bombs[1].x = 12 * cellWidth;
     bombs[1].y = 8 * cellHeight;
-    bombs[1].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\bomb2.png");
-    fillImageArray(bombs[1].explosionFrames, "Tiny Swords (Update 010)/Effects/Explosion", 6);
+    bombs[1].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/bomb2.png");
+    fillImageArray(bombs[1].explosionFrames, "Tiny-Swords-Maze/Effects/Explosion", 6);
     bombs[1].exploded = false;
     bombs[1].explosionFrame = 0;
     
     bombs[2].x = 21 * cellWidth-20;
     bombs[2].y = 13 * cellHeight-25;
-    bombs[2].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\bomb3.png");
-    fillImageArray(bombs[2].explosionFrames, "Tiny Swords (Update 010)/Effects/Explosion", 6);
+    bombs[2].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/bomb3.png");
+    fillImageArray(bombs[2].explosionFrames, "Tiny-Swords-Maze/Effects/Explosion", 6);
     bombs[2].exploded = false;
     bombs[2].explosionFrame = 0;
 }
@@ -133,22 +133,22 @@ void initializeProps(Prop *props, int count) {
 
     props[0].x = 8 * cellWidth;
     props[0].y = 3 * cellHeight;
-    props[0].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\prop1.png");
+    props[0].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/prop1.png");
     strcpy(props[0].clue, "WELCOME! Search for clues that will lead you out of the maze.\nBeware of bombs.Your life will end after encountering 3 bombs.\n");
 
     props[1].x = 8 * cellWidth;
     props[1].y = 12 * cellHeight;
-    props[1].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\prop2.png");
+    props[1].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/prop2.png");
     strcpy(props[1].clue, "The scroll reads: 'ezmerelda'");
     
     props[2].x = 18 * cellWidth;
     props[2].y = 2 * cellHeight;
-    props[2].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\prop3.png");
+    props[2].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/prop3.png");
     strcpy(props[2].clue, "*nom nom*'");
     
     props[4].x = 4 * cellWidth;
     props[4].y = 10 * cellHeight;
-    props[4].image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\prop4.png");
+    props[4].image = LoadTexture(MAZE_RESOURCE_PATH "/BG/prop4.png");
     strcpy(props[4].clue, "I am the friendly pumpkin :)");
 }
 
@@ -254,7 +254,7 @@ void initializeBarrier(Barrier *barrier) {
 
     barrier->x = 22 * cellWidth;
     barrier->y = 9 * cellHeight+2; 
-    barrier->image = LoadTexture(MAZE_RESOURCE_PATH "\\BG\\barrier.png");
+    barrier->image = LoadTexture(MAZE_RESOURCE_PATH "/BG/barrier.png");
     barrier->isLocked = true;
     strcpy(barrier->password, "ezmerelda");
 }

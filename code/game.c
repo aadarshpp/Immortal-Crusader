@@ -8,6 +8,9 @@
 #include "intel.c"
 #include "maze.c"
 
+#define BASE_WIDTH 1920
+#define BASE_HEIGHT 1080
+
 int main(void) {
     InitWindow(GetMonitorWidth(0), GetMonitorHeight(0), "Immortal Crusade");
     ToggleFullscreen();
@@ -58,6 +61,10 @@ int main(void) {
     int run = 1;
     
     int miniGameDeath = 0;
+
+    RenderTexture2D target = LoadRenderTexture(BASE_WIDTH, BASE_HEIGHT);
+    SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
+
     
     while(run) {
         
@@ -88,12 +95,17 @@ int main(void) {
         
         if(feyrestMusicInitialised==1) {
             if (warrior.sceneName==MAINMENU || warrior.sceneName==RULES || (warrior.sceneName==END && !inFin)) UpdateMusicStream(feyrestMusic);
-            else StopMusicStream(feyrestMusic);
+            else {
+                feyrestMusicInitialised = 0;
+                StopMusicStream(feyrestMusic);
+            }
         }
         
-        feyrestMusicInitialised = 0;
-        
         BeginDrawing();
+        ClearBackground(BLACK);
+        
+        BeginTextureMode(target);
+        ClearBackground(BLACK);
         
         switch (warrior.sceneName) {
             
@@ -325,6 +337,27 @@ int main(void) {
         }
         
         frameNo++;
+
+        EndTextureMode();
+
+        // Scale the virtual screen to the real screen size
+        float scaleX = (float)GetScreenWidth() / BASE_WIDTH;
+        float scaleY = (float)GetScreenHeight() / BASE_HEIGHT;
+        float scale = (scaleX < scaleY) ? scaleX : scaleY; // Keep aspect ratio
+
+        int finalWidth = (int)(BASE_WIDTH * scale);
+        int finalHeight = (int)(BASE_HEIGHT * scale);
+        int offsetX = (GetScreenWidth() - finalWidth) / 2;
+        int offsetY = (GetScreenHeight() - finalHeight) / 2;
+
+        DrawTexturePro(
+            target.texture,
+            (Rectangle){ 0, 0, BASE_WIDTH, -BASE_HEIGHT }, // Flip vertically
+            (Rectangle){ offsetX, offsetY, finalWidth, finalHeight },
+            (Vector2){ 0, 0 },
+            0.0f,
+            WHITE
+        );
         
         EndDrawing();
     }

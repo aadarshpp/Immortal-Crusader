@@ -3,8 +3,8 @@
 #include "raylib.h"
 #include <stdio.h>
 
-#define RESOURCE_PATH "C:/Immortal Crusade/resources"
-#define INTEL_RESOURCE_PATH "C:/Immortal Crusade/Intle_Resources"
+#define RESOURCE_PATH "./assets/resources"
+#define INTEL_RESOURCE_PATH "./assets/Intle_Resources"
 
 #define IMAGINATE_C
 
