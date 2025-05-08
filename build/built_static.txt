@@ -1,3 +1,1 @@
-gcc code/game.c -o game_static.exe -Iraylib/include -Lraylib/lib -static -lraylib -lopengl32 -lgdi32 -lwinmm -lm -lpthread
-
-gcc code/game.c -o game_static.exe -Iraylib_5.5/include -Lraylib_5.5/lib -static -lraylib -lopengl32 -lgdi32 -lwinmm -lm -lpthread
+gcc code/game.c -o executable/game_static.exe -Iraylib/include -Lraylib/lib -static -lraylib -lopengl32 -lgdi32 -lwinmm -lm -lpthread
