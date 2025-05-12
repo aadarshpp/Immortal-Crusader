@@ -49,8 +49,7 @@ You can create a batch script or Makefile for easier compilation if needed.
 
 ## Releases
 
-A standalone `.exe` for Windows is available in the **Releases** section (if published).
-Otherwise, clone and build manually as described above.
+A standalone `.exe` for Windows is available in the **Releases** section.
 
 ## Credits
 
