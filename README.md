@@ -43,7 +43,7 @@ To build the game on Windows:
 
 Example build command:
 
-gcc code/game.c -o build/game.exe -Iraylib/include -Lraylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm
+`gcc code/game.c -o build/game.exe -Iraylib/include -Lraylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm`
 
 You can create a batch script or Makefile for easier compilation if needed.
 
