@@ -55,7 +55,7 @@ A standalone `.exe` for Windows is available in the **Releases** section.
 
 **Art**
 
-* Player Avatar by [TinySword](https://pixelfrog-assets.itch.io/tiny-swords)
+* Player Avatar and other sprites by [TinySword](https://pixelfrog-assets.itch.io/tiny-swords)
 * Backgrounds by *blasphemy* ([The Game Kitchen](https://thegamekitchen.com/)
 
 **Audio**
