@@ -1,1 +1,0 @@
-gcc code/game.c -o game_static.exe -Iraylib/include -Lraylib/lib -static -lraylib -lopengl32 -lgdi32 -lwinmm -lm -lpthread

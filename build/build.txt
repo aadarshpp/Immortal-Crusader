@@ -1,1 +1,0 @@
-gcc code/game.c -o game.exe -Iraylib/include -Lraylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm
