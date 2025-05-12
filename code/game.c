@@ -5,11 +5,8 @@
 #include "scene_builder.c"
 #include "character_setup.c"
 #include "imaginate.c"
-#include "intel.c"
+#include "intle.c"
 #include "maze.c"
-
-#define BASE_WIDTH 1920
-#define BASE_HEIGHT 1080
 
 int main(void) {
     InitWindow(GetMonitorWidth(0), GetMonitorHeight(0), "Immortal Crusade");
@@ -50,10 +47,10 @@ int main(void) {
     int dead = 0;
     
     InitAudioDevice();              // Initialize audio device
-    Music mustardMusic = LoadMusicStream(RESOURCE_PATH "/Audio/mustard.mp3");
-    Music feyrestMusic = LoadMusicStream(RESOURCE_PATH "/Audio/feyrest.mp3");
-    Music feinMusic = LoadMusicStream(RESOURCE_PATH "/Audio/FE!N.mp3");
-    int feyrestMusicInitialised = 0;
+    Music man_screamMusic = LoadMusicStream(RESOURCE_PATH "/Audio/man_scream.mp3");
+    Music Medival_MusicMusic = LoadMusicStream(RESOURCE_PATH "/Audio/Medival_Music.mp3");
+    Music end_scoreMusic = LoadMusicStream(RESOURCE_PATH "/Audio/end_score.mp3");
+    int Medival_MusicMusicInitialised = 0;
    
     warrior.sceneName = MAINMENU;
     MainMenuOptions currentMainMenuOption = START_GAME;
@@ -61,16 +58,10 @@ int main(void) {
     int run = 1;
     
     int miniGameDeath = 0;
-
-    RenderTexture2D target = LoadRenderTexture(BASE_WIDTH, BASE_HEIGHT);
-    SetTextureFilter(target.texture, TEXTURE_FILTER_BILINEAR);
-
     
     while(run) {
         
-        if (WindowShouldClose()) { break; }
-        
-        if (IsKeyPressed(KEY_B)) {
+        if (IsKeyPressed(KEY_B) || WindowShouldClose()) {
             warrior.sceneName = MAINMENU;
             warrior.x = 940; warrior.y = 520;
             warrior.intelSolved = 0;
@@ -93,25 +84,21 @@ int main(void) {
             ressurections = 5;
         }
         
-        if(feyrestMusicInitialised==1) {
-            if (warrior.sceneName==MAINMENU || warrior.sceneName==RULES || (warrior.sceneName==END && !inFin)) UpdateMusicStream(feyrestMusic);
+        if(Medival_MusicMusicInitialised==1) {
+            if (warrior.sceneName==MAINMENU || warrior.sceneName==RULES || (warrior.sceneName==END && !inFin)) UpdateMusicStream(Medival_MusicMusic);
             else {
-                feyrestMusicInitialised = 0;
-                StopMusicStream(feyrestMusic);
+                Medival_MusicMusicInitialised = 0;
+                StopMusicStream(Medival_MusicMusic);
             }
         }
         
         BeginDrawing();
-        ClearBackground(BLACK);
-        
-        BeginTextureMode(target);
-        ClearBackground(BLACK);
         
         switch (warrior.sceneName) {
             
             case MAINMENU:
-                if(!feyrestMusicInitialised) PlayMusicStream(feyrestMusic);
-                feyrestMusicInitialised = 1;
+                if(!Medival_MusicMusicInitialised) PlayMusicStream(Medival_MusicMusic);
+                Medival_MusicMusicInitialised = 1;
                 
                 DrawTexture(MAIN_MENU_BG_IMAGES[currentMainMenuOption], 0, 0, WHITE);
                 if (IsKeyPressed(KEY_DOWN)) currentMainMenuOption = (currentMainMenuOption+1)%3;
@@ -124,7 +111,7 @@ int main(void) {
                 }
                 break;
             case RULES:
-                feyrestMusicInitialised = 1;
+                Medival_MusicMusicInitialised = 1;
                 DrawTexture(rulesImage, 0, 0, WHITE);
                 break;
             
@@ -234,18 +221,18 @@ int main(void) {
                     gameoverFrame = 0;
                     if (!miniGameDeath){
                         gameoverFrame = frameNo + 18*10;
-                        PlayMusicStream(mustardMusic);
+                        PlayMusicStream(man_screamMusic);
                     }
                     rebirthFrame= gameoverFrame + 18*5;
                     ressurectionFrame= rebirthFrame+18*15;
                 } else if ((frameNo<gameoverFrame) && !miniGameDeath) {
-                    UpdateMusicStream(mustardMusic);
+                    UpdateMusicStream(man_screamMusic);
                     DrawTexture(BgImages[goblin.sceneName], 0, 0, WHITE);
                     for (int i=0; i<=ressurections; i++) DrawTexture(phoenixFeather, 60 + phoenixFeather.width*i, 10, WHITE);
                     animate(warrior.animationFramesArray[warrior.currentStill], 7, 21, frameNo, warrior.x, warrior.y);
                     animate(goblin.animationFramesArray[ATTACK], 18, 18, frameNo, goblin.x, goblin.y);
                 } else if (frameNo<rebirthFrame){
-                    StopMusicStream(mustardMusic);
+                    StopMusicStream(man_screamMusic);
                     drawTextBox((Rectangle){0, 0, GetMonitorWidth(0), GetMonitorHeight(0)}, "[ YOU DIED ]", 30, BLACK, BLACK, RED);
                 } else if (frameNo<ressurectionFrame) {
                     char message[100];
@@ -298,8 +285,8 @@ int main(void) {
             case END:
             
                 if (!inFin) {
-                    if (!feyrestMusicInitialised) PlayMusicStream(feyrestMusic);
-                    feyrestMusicInitialised = 1;
+                    if (!Medival_MusicMusicInitialised) PlayMusicStream(Medival_MusicMusic);
+                    Medival_MusicMusicInitialised = 1;
                 }
             
                 if(!endSceneInitialised) {
@@ -327,8 +314,8 @@ int main(void) {
                     }
                 } else {
                     
-                    if (!inFin) PlayMusicStream(feinMusic);
-                    else UpdateMusicStream(feinMusic);
+                    if (!inFin) PlayMusicStream(end_scoreMusic);
+                    else UpdateMusicStream(end_scoreMusic);
                     inFin = 1; 
                     DrawTexture(finImage, 0, 0, WHITE);
                 }
@@ -337,27 +324,6 @@ int main(void) {
         }
         
         frameNo++;
-
-        EndTextureMode();
-
-        // Scale the virtual screen to the real screen size
-        float scaleX = (float)GetScreenWidth() / BASE_WIDTH;
-        float scaleY = (float)GetScreenHeight() / BASE_HEIGHT;
-        float scale = (scaleX < scaleY) ? scaleX : scaleY; // Keep aspect ratio
-
-        int finalWidth = (int)(BASE_WIDTH * scale);
-        int finalHeight = (int)(BASE_HEIGHT * scale);
-        int offsetX = (GetScreenWidth() - finalWidth) / 2;
-        int offsetY = (GetScreenHeight() - finalHeight) / 2;
-
-        DrawTexturePro(
-            target.texture,
-            (Rectangle){ 0, 0, BASE_WIDTH, -BASE_HEIGHT }, // Flip vertically
-            (Rectangle){ offsetX, offsetY, finalWidth, finalHeight },
-            (Vector2){ 0, 0 },
-            0.0f,
-            WHITE
-        );
         
         EndDrawing();
     }
