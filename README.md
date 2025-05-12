@@ -55,10 +55,10 @@ A standalone `.exe` for Windows is available in the **Releases** section.
 
 **Art**
 
-* Player Avatar by TinySword
-* Fin & Dead Queen Sprite by *blasphemy* (artist)
+* Player Avatar by [TinySword](https://pixelfrog-assets.itch.io/tiny-swords)
+* Fin & Dead Queen Sprite by *blasphemy* ([The Game Kitchen](https://thegamekitchen.com/)
 
 **Audio**
 
-* Background Music: *Royalty Free Medieval Music - Marked* by Alexander Nakarada
+* Background Music: *Royalty Free Medieval Music - Marked* by [Alexander Nakarada](https://www.youtube.com/channel/UCw4wdHksXbaiyu3BiBNNW0w)
 * SFX: [Man Scream – Pixabay](https://pixabay.com/sound-effects/man-scream-121085/)
