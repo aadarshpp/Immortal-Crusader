@@ -18,7 +18,7 @@ ImmortalCrusader/
 ├── assets/
 │   ├── Maze_Resources/        → Maze mini-game visuals/audio
 │   ├── Intle_Resources/       → Intel mini-game content
-│   └── Main_Resources/        → Core game assets: characters, scenes
+│   └── resources/        → Core game assets: characters, scenes
 │
 ├── code/
 │   ├── character_def.c        → Character data structures
