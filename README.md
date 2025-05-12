@@ -8,7 +8,7 @@ Death is not the end, it's the beginning.
 
 * Classic pixel-art platforming action
 * Environmental puzzles and hidden clues
-* Two themed mini-games: **Maze Escape** and **Intel** ([Wordle](https://wordly.org/) variant)
+* Two themed mini-games: **Maze Escape** and **Intle** ([Wordle](https://wordly.org/) variant)
 * Unique "immortality" mechanic: death resets position, not progress
 * A dark and mysterious medieval storyline
 
@@ -17,7 +17,7 @@ Death is not the end, it's the beginning.
 ImmortalCrusader/
 ├── assets/
 │   ├── Maze_Resources/        → Maze mini-game visuals/audio
-│   ├── Inter_Resources/       → Intel mini-game content
+│   ├── Intle_Resources/       → Intel mini-game content
 │   └── Main_Resources/        → Core game assets: characters, scenes
 │
 ├── code/
@@ -29,7 +29,7 @@ ImmortalCrusader/
 │   ├── scene_setup.c          → Scene initialization and transitions
 │   ├── imaginate.c            → Story and scene presentation
 │   ├── maze.c                 → Maze mini-game logic
-│   ├── intel.c                → Intel mini-game logic
+│   ├── intle.c                → Intel mini-game logic
 │   └── game.c                 → Main game loop
 │
 └── README.md                  → This file
