@@ -62,5 +62,5 @@ Here's your updated **Credits** section with the additional music track included
 **Audio**
 
 * Background Music: *Royalty Free Medieval Music - Marked* by [Alexander Nakarada](https://www.youtube.com/channel/UCw4wdHksXbaiyu3BiBNNW0w)
-* End Score: *Triumphant Trailer Score – Powerful Orchestral Build-Up* by [Pixabay](https://pixabay.com/music/main-title-triumphant-trailer-score-powerful-orchestral-build-up-274380/)
 * SFX: [Man Scream – Pixabay](https://pixabay.com/sound-effects/man-scream-121085/)
+* End Score: *Triumphant Trailer Score – Powerful Orchestral Build-Up* by [Pixabay](https://pixabay.com/music/main-title-triumphant-trailer-score-powerful-orchestral-build-up-274380/)
