@@ -2,13 +2,13 @@
 
 **Immortal Crusader** is a retro pixel-art medieval puzzle platformer written in C using [raylib](https://www.raylib.com/). You play as an immortal knight on a cursed quest to rescue the queen. Solve puzzles, explore mysterious levels, complete mini-games, and fight goblins in a kingdom lost to time.
 
-Death is not the end—if you fall, you’ll resurrect at the beginning, but your progress stays with you.
+Death is not the end, it's the beginning.
 
 ## Gameplay Features
 
 * Classic pixel-art platforming action
 * Environmental puzzles and hidden clues
-* Two themed mini-games: **Maze Escape** and **Intel Hunt**
+* Two themed mini-games: **Maze Escape** and **Intel** ([Wordle](https://wordly.org/) variant)
 * Unique "immortality" mechanic: death resets position, not progress
 * A dark and mysterious medieval storyline
 
