@@ -17,7 +17,7 @@ Death is not the end, it's the beginning.
 You can download and play **Immortal Crusader** from the following places:
 
 - **[Releases section](https://github.com/aadarshpp/ImmortalCrusader/releases)** (standalone `.exe` for Windows)
-- **[itch.io - Immortal Crusader](https://aadarshpp.itch.io/immortal-crusader)** (view screenshots and download the game as an alternative)
+- **[itch.io - Immortal Crusader](https://aadarshpp.itch.io/immortal-crusader)** (view screenshots and download the game)
 
 
 ## Project Structure
