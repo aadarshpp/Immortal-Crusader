@@ -12,6 +12,14 @@ Death is not the end, it's the beginning.
 * Unique "immortality" mechanic: death resets position, not progress
 * A dark and mysterious medieval storyline
 
+## Play
+
+You can download and play **Immortal Crusader** from the following places:
+
+- **Releases section** (standalone `.exe` for Windows)
+- **[itch.io - Immortal Crusader](https://aadarshpp.itch.io/immortal-crusader)** (view screenshots and download the game as an alternative)
+
+
 ## Project Structure
 ```
 ImmortalCrusader/
@@ -46,11 +54,6 @@ Example build command:
 `gcc code/game.c -o build/game.exe -Iraylib/include -Lraylib/lib -lraylib -lopengl32 -lgdi32 -lwinmm`
 
 You can create a batch script or Makefile for easier compilation if needed.
-
-## Releases
-
-A standalone `.exe` for Windows is available in the **Releases** section.
-Here's your updated **Credits** section with the additional music track included:
 
 ## Credits
 
