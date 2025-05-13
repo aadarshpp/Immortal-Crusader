@@ -216,11 +216,6 @@ void handleCharacterMovement(Character *character, int *move, Moves *moves, int 
         }
     }
 
-    char debugMsg[100];
-    sprintf(debugMsg, "Pos: (%d, %d), Grid: (%d, %d), Cell: %d",
-            character->x, character->y, gridX, gridY, bounds[gridY][gridX]);
-    DrawText(debugMsg, 10, 10, 20, WHITE);
-
     *move = (moves->right ^ moves->left) || (moves->up ^ moves->down);
 }
 
