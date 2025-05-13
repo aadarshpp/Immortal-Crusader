@@ -110,6 +110,7 @@ IntelGameState intelMain()
     screenWidth = (int)GetScreenWidth();
     screenHeight = (int)GetScreenHeight();
     playpos.y=585;
+    gameOver = false;
     trigger = false;
     
     setPass();
