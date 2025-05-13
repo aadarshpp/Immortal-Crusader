@@ -58,10 +58,11 @@ int main(void) {
     int run = 1;
     
     int miniGameDeath = 0;
+    int goToMainMenu = 0;
     
     while(run) {
         
-        if (IsKeyPressed(KEY_B) || WindowShouldClose()) {
+        if (IsKeyPressed(KEY_B) || WindowShouldClose() || goToMainMenu) {
             warrior.sceneName = MAINMENU;
             warrior.x = 940; warrior.y = 520;
             warrior.intelSolved = 0;
@@ -152,7 +153,7 @@ int main(void) {
                 IntelGameState intelGameState = intelMain();
                 switch(intelGameState) {
                     case EXIT_GAME_INTEL:
-                        run = 0;
+                        goToMainMenu = 1;
                         break;
                     case PREV_SCENE_INTEL:
                         warrior.sceneName = warrior.prevSceneName;
@@ -185,7 +186,7 @@ int main(void) {
                 MazeGameState mazeGameState = mazeMain();
                 switch (mazeGameState) {
                     case EXIT_GAME_MAZE:
-                        run = 0;
+                        goToMainMenu = 1;
                         break;
                     case BOMBED:
                         miniGameDeath = 1;
@@ -324,6 +325,7 @@ int main(void) {
         }
         
         frameNo++;
+        goToMainMenu = 0;
         
         EndDrawing();
     }
