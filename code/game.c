@@ -154,6 +154,7 @@ int main(void) {
                 switch(intelGameState) {
                     case EXIT_GAME_INTEL:
                         goToMainMenu = 1;
+                        continue;
                         break;
                     case PREV_SCENE_INTEL:
                         warrior.sceneName = warrior.prevSceneName;
@@ -187,6 +188,7 @@ int main(void) {
                 switch (mazeGameState) {
                     case EXIT_GAME_MAZE:
                         goToMainMenu = 1;
+                        continue;
                         break;
                     case BOMBED:
                         miniGameDeath = 1;
